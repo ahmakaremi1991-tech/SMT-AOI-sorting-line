@@ -1,10 +1,12 @@
 const { chromium } = require('playwright');
-const out = __dirname + '/../../out/shots/sort/';
+const out = __dirname + '/../../out/shots/' + (process.env.PAGE ? 'v2/' : 'sort/');
 (async () => {
   const b = await chromium.launch({ args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const p = await b.newPage({ viewport: { width: 1600, height: 900 } });
   const errs = []; p.on('pageerror', e => errs.push('ERR ' + e.message+' '+e.stack)); p.on('console', m => { if (m.type() === 'error') errs.push('CONSOLE ' + m.text()); });
-  await p.goto('file://'+require('path').resolve(__dirname,'../../index.html')+'');
+  await p.addInitScript(q => { try { localStorage.setItem('smt-quality', q); } catch (e) {} }, process.env.QUALITY || 'high');
+  await p.goto('file://'+require('path').resolve(__dirname,'../..',process.env.PAGE||'index.html'));
+  await p.waitForFunction(() => window.__sim && (window.__sim.ready === undefined || window.__sim.ready), null, { timeout: 60000 });
   await p.waitForTimeout(3000);
   const st=()=>p.evaluate(()=>({st:__sim.state,hold:__sim.hold,cnt:JSON.stringify(__sim.CNT),mags:[0,1,2].map(i=>__sim.magCount(i)).join('/'),line:__sim.LINE.map(m=>m.key+':'+m.st).join(' '),start:document.getElementById('bStart').disabled}));
   for (const w of process.argv.slice(2)) {

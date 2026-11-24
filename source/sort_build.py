@@ -73,8 +73,12 @@ FLOW=['LOADER','FLIPPER 1','SCANNER','AOI','FLIPPER 2','UNLOADER']
 js=("<script>\n'use strict';\nwindow.SMT_CFG={shadow:3600,shadowFar:16000,shadowMap:4096,maxDist:22000,esd:10600,contact:[11000,2800]};\n"
     +rd(os.path.join(D,'common.js')).replace("'use strict';\n","",1)+rd(os.path.join(D,'pcbkit.js'))+rd(os.path.join(D,'handling_parts.js'))
     +rd(os.path.join(D,'sort.js')).replace('/*__AOI_MODEL__*/',aoi_part())+"\n</script>")
-html=page(dict(title='AOI SORTING LINE — offline sorting of suspect panels · SMT simulation',fn='AOI SORTING LINE',
-  sub='Offline automatic sorting line: loader, flipper, scanner, AOI, flipper and unloader.',
-  overlays=[('title','Title',True),('cycle','Cycle time',True),('hud','Line status',True),('log','Event log',True),('hint','Mouse hint',True)],
-  specs=[],extra_side=extra,machine_html=mach,flow=FLOW,flow_title='Sorting line',stage_html=stage,toolbar=bar,libs=LIBS,script=js,css=css))
-out=os.path.join(D,'..','index.html');open(out,'w',encoding='utf-8').write(html);print(out,len(html)//1024,'KB')
+def main():
+    html=page(dict(title='AOI SORTING LINE — offline sorting of suspect panels · SMT simulation',fn='AOI SORTING LINE',
+      sub='Offline automatic sorting line: loader, flipper, scanner, AOI, flipper and unloader.',
+      overlays=[('title','Title',True),('cycle','Cycle time',True),('hud','Line status',True),('log','Event log',True),('hint','Mouse hint',True)],
+      specs=[],extra_side=extra,machine_html=mach,flow=FLOW,flow_title='Sorting line',stage_html=stage,toolbar=bar,libs=LIBS,script=js,css=css))
+    out=os.path.join(D,'..','index.html');open(out,'w',encoding='utf-8').write(html);print(out,len(html)//1024,'KB')
+
+if __name__=='__main__':
+    main()

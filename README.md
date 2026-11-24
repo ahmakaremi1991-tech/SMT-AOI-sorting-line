@@ -2,6 +2,16 @@
 
 **Online:** https://ahmakaremi1991-tech.github.io/SMT-AOI-sorting-line/
 
+**Preview v2 (faster):** https://ahmakaremi1991-tech.github.io/SMT-AOI-sorting-line/v2/ — same simulator with these changes:
+- about 3× fewer draw calls (764 → 224)
+- shadows recalculated only when something big moves
+- no drawing while idle
+- a loading screen
+- Graphics quality (Auto / High / Low) and a Performance overlay
+- a phone layout
+
+The main page stays on v1 until v2 is approved.
+
 An interactive 3D simulator of an offline AOI sorting line. Suspect panels are fed from magazines, inspected by the AOI and sorted into good and defect magazines.
 The page is a single self-contained HTML file (`index.html`, three.js inlined) and also works offline.
 
@@ -28,7 +38,8 @@ Floor areas: *PENTRU SORTARE* (unsorted input), *SORTATE* (sorted output) and th
 |---|---|
 | `index.html` | the simulator (generated, do not edit by hand) |
 | `source/` | build sources: shared page shell (`page.py`, `shell.*`, `common.js`), PCB and machine parts (`pcbkit.js`, `handling_parts.js`, `src/aoi.machine.js`), line engine and UI (`sort.js`), builder (`sort_build.py`) |
-| `source/tests/` | headless Playwright checks and the thumbnail script |
+| `source/tests/` | headless Playwright checks (`check_sort.js`, `PAGE=v2/index.html` for v2), `perf_budget.js` (v1 vs v2 table), `compare_v1_v2.js`, `phone_v2.js` |
+| `v2/`, `source/v2/` | v2 preview: `perf.js` (reusable performance helpers), `sort_v2_tail.js`, `sort_build_v2.py` (patches `sort.js`, writes `v2/`) |
 | `docs/` | project history, decisions, and how to continue |
 
 The machine models come from the sister project **SMT Equipment – Basic Knowledge** (https://ahmakaremi1991-tech.github.io/SMT-Equipment-Basic-knowledge-/). Models are generic, with no brand names.

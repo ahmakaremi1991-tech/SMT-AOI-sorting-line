@@ -18,6 +18,20 @@ python3 sort_build.py                      # writes ../index.html
 
 Shared parts (`common.js`, `pcbkit.js`, `handling_parts.js`, `shell.*`, `page.py`, `src/aoi.machine.js`) are copies from the SMT Equipment – Basic Knowledge repository. If a machine model changes there, copy the file here and rebuild.
 
+## v2 (performance preview)
+```
+python3 source/v2/sort_build_v2.py         # writes v2/index.html, v2/app.js, v2/lib/*
+node source/tests/perf_budget.js           # v1 vs v2 table, fails if v2 > 300 draw calls
+PAGE=v2/index.html node source/tests/check_sort.js "a|__sim.start()|60"
+```
+v2 uses the same line engine (`source/sort.js`). `sort_build_v2.py` applies small text patches to it, so a change made in `sort.js` reaches both versions. If a patch target changes, the build stops with "patch target not found".
+`source/v2/perf.js` holds the helpers meant for the full SMT line too:
+- `freezeStatic`: merge parts that never move
+- `shareMaterials`
+- `instanceRepeat`: instancing for repeated parts
+- `machineLOD`: inner detail only when the camera is close
+- `ShadowSched`, `RenderGate`, `Quality`, `PerfHUD`
+
 ## Test (headless)
 ```
 node source/tests/check_sort.js "a|__sim.start()|60"

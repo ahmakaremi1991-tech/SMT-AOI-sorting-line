@@ -33,3 +33,16 @@ The owner provided a brief. Agreed decisions:
 
 ## 2026-11-24 — Own repository
 The page moved from `machines/sorting_line.html` in the catalogue repository to this repository's `index.html`, with its own GitHub Pages link.
+
+## 2026-11-24 — Performance v2 (preview at `/v2/`)
+Following a teacher's review (lazy loading, loading indicator, touch controls), I measured the page: 764 draw calls per frame, a 4096 px shadow map recalculated on every frame, drawing even while idle, and a blank screen while the page builds. v2 was built next to v1, which is left unchanged:
+- **Draw calls:** parts that never move are merged, identical materials are shared, and all panels are drawn with instancing. 764 → 224 draw calls.
+- **Shadows:** 2048 px shadow map, recalculated only when a big part moves (at most 10 times a second); panels don't cast shadows.
+- **Idle:** nothing is drawn while idle or paused; retina sharpness is capped at 1.5×.
+- **Quality:** Auto / High / Low. Auto drops to Low below 28 fps.
+- **Loading screen** with steps.
+- **Libraries:** three.js and the shared parts are separate files that the browser caches.
+- **Phone layout:** the side panel starts collapsed, the button bar is compact, the status panel folds, and the overview steps back on portrait screens.
+- **Full-line groundwork:** machine detail by distance (the AOI head and gantry are only drawn when close or with the cover open) and an instancing helper for feeders and components.
+
+The owner will review v2 before it replaces the main page.
