@@ -31,4 +31,4 @@ Floor areas: *PENTRU SORTARE* (unsorted input), *SORTATE* (sorted output) and th
 | `source/tests/` | headless Playwright checks and the thumbnail script |
 | `docs/` | project history, decisions, and how to continue |
 
-The machine models come from the sister project **SMT Equipment – Basic Knowledge** (https://ahmakaremi1991-tech.github.io/smt-equipment-basic-knowledge-/). Models are generic, with no brand names.
+The machine models come from the sister project **SMT Equipment – Basic Knowledge** (https://ahmakaremi1991-tech.github.io/SMT-Equipment-Basic-knowledge-/). Models are generic, with no brand names.
