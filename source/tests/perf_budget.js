@@ -1,4 +1,4 @@
-// Before/after performance comparison: v1 (index.html) vs v2 (v2/index.html).
+// Before/after performance comparison: v1 (v1/index.html, previous) vs v2 (index.html, main).
 // node source/tests/perf_budget.js   → prints a table, exits 1 if v2 is over budget
 const { chromium } = require('playwright');
 const path = require('path');
@@ -7,7 +7,7 @@ const BUDGET = { calls: 300 };
 (async () => {
   const b = await chromium.launch({ args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const rows = [];
-  for (const [name, file] of [['v1', 'index.html'], ['v2', 'v2/index.html']]) {
+  for (const [name, file] of [['v1', 'v1/index.html'], ['v2', 'index.html']]) {
     const p = await b.newPage({ viewport: { width: 1600, height: 900 } });
     await p.addInitScript(() => { try { localStorage.setItem('smt-quality', 'high'); } catch (e) {} });
     const errs = []; p.on('pageerror', e => errs.push(e.message));

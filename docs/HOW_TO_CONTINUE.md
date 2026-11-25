@@ -12,17 +12,18 @@ When a change is done, add it to `docs/PROJECT_HISTORY.md`, then commit and push
 ```
 cd source
 npm install three@0.147.0 --prefix lib     # once; lib/ is git-ignored
-python3 sort_build.py                      # writes ../index.html
+python3 v2/sort_build_v2.py                # main page: ../index.html, ../app.js, ../lib/
+python3 sort_build.py                      # previous single-file version: ../v1/index.html
 ```
 `sort_build.py` puts these together, in order: `common.js` + `pcbkit.js` + `handling_parts.js` + `sort.js`. It also inserts `src/aoi.machine.js`, wrapped as `buildAOI(parent, BW, BD)`, into `sort.js` and fills the `page.py` shell around the script.
 
 Shared parts (`common.js`, `pcbkit.js`, `handling_parts.js`, `shell.*`, `page.py`, `src/aoi.machine.js`) are copies from the SMT Equipment – Basic Knowledge repository. If a machine model changes there, copy the file here and rebuild.
 
-## v2 (performance preview)
+## v2 (main version since 2026-11-25)
 ```
-python3 source/v2/sort_build_v2.py         # writes v2/index.html, v2/app.js, v2/lib/*
+python3 source/v2/sort_build_v2.py         # writes index.html, app.js, lib/*
 node source/tests/perf_budget.js           # v1 vs v2 table, fails if v2 > 300 draw calls
-PAGE=v2/index.html node source/tests/check_sort.js "a|__sim.start()|60"
+node source/tests/check_sort.js "a|__sim.start()|60"        # PAGE=v1/index.html for the previous version
 ```
 v2 uses the same line engine (`source/sort.js`). `sort_build_v2.py` applies small text patches to it, so a change made in `sort.js` reaches both versions. If a patch target changes, the build stops with "patch target not found".
 `source/v2/perf.js` holds the helpers meant for the full SMT line too:

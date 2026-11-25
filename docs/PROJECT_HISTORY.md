@@ -60,3 +60,6 @@ Model changes (`handling_parts.js`, shared by the handling line and the sorting 
 - Stored panels sit with the trailing edge just inside the entrance.
 
 The new step sequence is in the sorting line `unloaderRun` and the handling line UNLOAD `run`. A new **Pusher** camera view (top view with X-ray, following the shuttle) is on both pages.
+
+## 2026-11-25 — v2 is now the main version
+The owner approved v2: the site root (`index.html`, `app.js`, `lib/`) is now the fast version; the previous single-file page moved to `v1/index.html`.

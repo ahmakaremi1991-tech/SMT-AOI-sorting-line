@@ -1,4 +1,4 @@
-"""Build the v2 (performance) sorting line into ../../v2/ — the v1 page (../../index.html) is not touched.
+"""Build the sorting line (v2, the main version) into the repo root: index.html, app.js, lib/. The previous single-file version is built by ../sort_build.py into v1/index.html.
 
 v2 = the same line engine (../sort.js) + patches below + perf.js, with three.js and the shared
 parts served as separate, cacheable files instead of being inlined into the page."""
@@ -9,7 +9,8 @@ from page import page
 import sort_build as v1                       # reuse v1 html pieces (side panel, stage, bar, css, aoi_part)
 rd=lambda p:open(p,encoding='utf-8').read()
 L=os.path.join(SRC,'lib','node_modules','three')
-OUT=os.path.join(ROOT,'v2');os.makedirs(os.path.join(OUT,'lib'),exist_ok=True)
+OUT=ROOT;   # v2 is the main version: index.html, app.js, lib/ at the repo root
+os.makedirs(os.path.join(OUT,'lib'),exist_ok=True)
 
 def rep(s,a,b,n=1):
     assert s.count(a)==n,('patch target not found',a[:70],s.count(a));return s.replace(a,b)
@@ -83,5 +84,5 @@ html=page(dict(title='AOI SORTING LINE v2 — offline sorting of suspect panels 
   overlays=[('title','Title',True),('cycle','Cycle time',True),('hud','Line status',True),('log','Event log',True),('hint','Mouse hint',True),('perf','Performance',False)],
   specs=[],extra_side=v1.extra+quality,machine_html=v1.mach,flow=v1.FLOW,flow_title='Sorting line',stage_html=stage,toolbar=v1.bar,libs=LIBS,script=js,css=css))
 open(os.path.join(OUT,'index.html'),'w',encoding='utf-8').write(html)
-tot=sum(os.path.getsize(os.path.join(dp,f)) for dp,_,fs in os.walk(OUT) for f in fs)
+tot=sum(os.path.getsize(os.path.join(OUT,f)) for f in ['index.html','app.js'])+sum(os.path.getsize(os.path.join(OUT,'lib',f)) for f in os.listdir(os.path.join(OUT,'lib')))
 print('v2 written:',OUT,'page',os.path.getsize(os.path.join(OUT,'index.html'))//1024,'KB · total',tot//1024,'KB')

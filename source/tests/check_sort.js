@@ -1,5 +1,5 @@
 const { chromium } = require('playwright');
-const out = __dirname + '/../../out/shots/' + (process.env.PAGE ? 'v2/' : 'sort/');
+const out = __dirname + '/../../out/shots/' + (process.env.PAGE ? process.env.PAGE.replace(/\W+/g, '_') + '/' : 'main/');
 (async () => {
   const b = await chromium.launch({ args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const p = await b.newPage({ viewport: { width: 1600, height: 900 } });

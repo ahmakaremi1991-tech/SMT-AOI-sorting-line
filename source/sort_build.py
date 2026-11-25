@@ -78,7 +78,7 @@ def main():
       sub='Offline automatic sorting line: loader, flipper, scanner, AOI, flipper and unloader.',
       overlays=[('title','Title',True),('cycle','Cycle time',True),('hud','Line status',True),('log','Event log',True),('hint','Mouse hint',True)],
       specs=[],extra_side=extra,machine_html=mach,flow=FLOW,flow_title='Sorting line',stage_html=stage,toolbar=bar,libs=LIBS,script=js,css=css))
-    out=os.path.join(D,'..','index.html');open(out,'w',encoding='utf-8').write(html);print(out,len(html)//1024,'KB')
+    out=os.path.join(D,'..','v1','index.html');open(out,'w',encoding='utf-8').write(html);print(out,len(html)//1024,'KB')
 
 if __name__=='__main__':
     main()

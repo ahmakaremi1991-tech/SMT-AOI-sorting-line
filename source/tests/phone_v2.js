@@ -5,7 +5,7 @@ const path = require('path'); const ROOT = path.resolve(__dirname, '../..'); con
   const b = await chromium.launch({ args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const ctx = await b.newContext({ ...devices['iPhone 13'] });
   const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(e.message));
-  await p.goto('file://' + path.join(ROOT, 'v2/index.html'), { waitUntil: 'commit' });
+  await p.goto('file://' + path.join(ROOT, 'index.html'), { waitUntil: 'commit' });
   await p.waitForSelector('#loading'); await p.waitForTimeout(400);
   await p.screenshot({ path: OUT + '/phone_loading.png' });
   await p.waitForFunction(() => window.__sim && window.__sim.ready, null, { timeout: 60000 });

@@ -1,4 +1,4 @@
-// Unloader pusher sequence from above: arrive → belt feed → push → return.  PAGE=v2/index.html for v2.
+// Unloader pusher sequence from above: arrive → belt feed → push → return.  PAGE=v1/index.html for the previous version.
 const { chromium } = require('playwright');
 const path = require('path'); const ROOT = path.resolve(__dirname, '../..'); const OUT = path.join(ROOT, 'out/shots/pusher');
 (async () => {

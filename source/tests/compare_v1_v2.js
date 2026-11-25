@@ -8,7 +8,7 @@ const STEPS = [
 ];
 (async () => {
   const b = await chromium.launch({ args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
-  for (const [v, file] of [['v1', 'index.html'], ['v2', 'v2/index.html']]) {
+  for (const [v, file] of [['v1', 'v1/index.html'], ['v2', 'index.html']]) {
     const p = await b.newPage({ viewport: { width: 1400, height: 820 } });
     await p.addInitScript(() => { try { localStorage.setItem('smt-quality', 'high'); localStorage.setItem('smt-side', 'min'); } catch (e) {} });
     await p.goto('file://' + path.join(ROOT, file));
