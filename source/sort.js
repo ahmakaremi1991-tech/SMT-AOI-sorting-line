@@ -22,14 +22,14 @@ const I18N={
   counters:'Counters',c_load:'Loaded',c_ins:'Inspected',c_good:'Good',c_bad:'Defect',c_judge:'Operator judgements',c_left:'Left in loader',
   mags:'Magazines',mag1:'Mag 1 · Good',mag2:'Mag 2 · Good',mag3:'Mag 3 · Defects',slots:'positions per magazine',
   START:'START',PAUSE:'PAUSE',RESUME:'RESUME',STOP:'STOP',RESET:'RESET',mark:'Mark panel for judgement',replace:'Replace magazine',
-  covers:'Open covers',close:'Close covers',xray:'X-ray',labels:'Labels',speed:'Speed',over:'Overview',vLoader:'Loader',vAoi:'AOI',vUnl:'Unloader',follow:'Follow panel',vTop:'Top',
+  covers:'Open covers',close:'Close covers',xray:'X-ray',labels:'Labels',speed:'Speed',over:'Overview',vLoader:'Loader',vAoi:'AOI',vUnl:'Unloader',vPush:'Pusher',follow:'Follow panel',vTop:'Top',
   judgeT:'Operator judgement',judgeMsg:'{sn} was marked for judgement – operator decision required.',pass:'PASS · GOOD',fail:'FAIL · BAD',judgeHint:'GOOD → Magazine 1 / 2 · BAD → Magazine 3 (defects)',
   fullGood:'Both good magazines are full – line stopped. Replace the magazines to continue.',fullBad:'Magazine 3 (defects) is full – line stopped. Replace it to continue.',
   doneT:'Run complete',doneClose:'Close',pctNok:'NOK',
   status:'Line',st_ready:'READY',st_run:'RUNNING',st_pause:'PAUSED',st_stop:'STOPPED',st_judge:'WAITING FOR OPERATOR',st_full:'MAGAZINE FULL',st_done:'RUN COMPLETE',
   m_loader:'LOADER',m_flip1:'FLIPPER 1',m_scan:'SCANNER',m_aoi:'AOI',m_flip2:'FLIPPER 2',m_unl:'UNLOADER',
   s_idle:'IDLE',s_wait:'WAITING',s_shuttle:'SHUTTLE TO MAGAZINE',s_pull:'PULLING PANEL',s_out:'PANEL OUT',s_in:'PANEL IN',s_flip:'FLIPPING 180°',s_bypass:'BYPASS',s_read:'READING CODE',
-  s_insp:'INSPECTING',s_judge:'OPERATOR JUDGEMENT',s_sensor:'PANEL AT END SENSOR',s_push:'PUSHING INTO MAGAZINE',s_full:'MAGAZINE FULL',s_swap:'MAGAZINE CHANGE',s_empty:'EMPTY',
+  s_insp:'INSPECTING',s_judge:'OPERATOR JUDGEMENT',s_sensor:'PANEL AT END SENSOR',s_feed:'BELT FEEDS PANEL IN',s_push:'PUSHER PUSHES PANEL HOME',s_return:'PUSHER BACK TO REFERENCE',s_full:'MAGAZINE FULL',s_swap:'MAGAZINE CHANGE',s_empty:'EMPTY',
   z_in:'unsorted parts',z_out:'sorted parts',z_an:'ANALYSIS AREA',z_an2:'defect panels (Mag 3)',
   l_start:'Line started · {side} · {prog} · width {w} mm · pitch {p}',l_load:'{sn} out of loader (magazine {m}, position {s})',l_flip:'{sn} flipped at {f}',l_bypass:'{sn} bypass at {f}',
   l_scan:'{sn} code read',l_aoi:'{sn} AOI result: {r}',l_mark:'{sn} marked for judgement',l_dec:'{sn} operator decision: {d}',l_store:'{sn} → Magazine {n}',l_full:'Magazine {n} full – line stopped',
@@ -42,14 +42,14 @@ const I18N={
   counters:'Contoare',c_load:'Încărcate',c_ins:'Inspectate',c_good:'Bune',c_bad:'Defecte',c_judge:'Decizii operator',c_left:'Rămase în încărcător',
   mags:'Magazii',mag1:'Mag 1 · Bune',mag2:'Mag 2 · Bune',mag3:'Mag 3 · Defecte',slots:'poziții pe magazie',
   START:'START',PAUSE:'PAUZĂ',RESUME:'CONTINUĂ',STOP:'STOP',RESET:'RESET',mark:'Marchează placa pentru evaluare',replace:'Înlocuiește magazia',
-  covers:'Deschide capacele',close:'Închide capacele',xray:'Transparent',labels:'Etichete',speed:'Viteză',over:'Vedere generală',vLoader:'Încărcător',vAoi:'AOI',vUnl:'Descărcător',follow:'Urmărește placa',vTop:'De sus',
+  covers:'Deschide capacele',close:'Închide capacele',xray:'Transparent',labels:'Etichete',speed:'Viteză',over:'Vedere generală',vLoader:'Încărcător',vAoi:'AOI',vUnl:'Descărcător',vPush:'Împingător',follow:'Urmărește placa',vTop:'De sus',
   judgeT:'Evaluare operator',judgeMsg:'{sn} a fost marcată pentru evaluare – este necesară decizia operatorului.',pass:'TRECE · BUNĂ',fail:'RESPINSĂ · DEFECTĂ',judgeHint:'BUNĂ → Magazia 1 / 2 · DEFECTĂ → Magazia 3 (defecte)',
   fullGood:'Ambele magazii pentru plăci bune sunt pline – linia s-a oprit. Înlocuiți magaziile pentru a continua.',fullBad:'Magazia 3 (defecte) este plină – linia s-a oprit. Înlocuiți-o pentru a continua.',
   doneT:'Rulare finalizată',doneClose:'Închide',pctNok:'NOK',
   status:'Linie',st_ready:'PREGĂTITĂ',st_run:'ÎN FUNCȚIUNE',st_pause:'PAUZĂ',st_stop:'OPRITĂ',st_judge:'AȘTEAPTĂ OPERATORUL',st_full:'MAGAZIE PLINĂ',st_done:'FINALIZATĂ',
   m_loader:'ÎNCĂRCĂTOR',m_flip1:'FLIPPER 1',m_scan:'SCANER',m_aoi:'AOI',m_flip2:'FLIPPER 2',m_unl:'DESCĂRCĂTOR',
   s_idle:'INACTIV',s_wait:'AȘTEAPTĂ',s_shuttle:'NAVETA LA MAGAZIE',s_pull:'EXTRAGE PLACA',s_out:'PLACA IESE',s_in:'PLACA INTRĂ',s_flip:'ÎNTOARCE 180°',s_bypass:'BYPASS',s_read:'CITEȘTE CODUL',
-  s_insp:'INSPECTEAZĂ',s_judge:'EVALUARE OPERATOR',s_sensor:'PLACA LA SENZORUL FINAL',s_push:'ÎMPINGE ÎN MAGAZIE',s_full:'MAGAZIE PLINĂ',s_swap:'SCHIMB MAGAZIE',s_empty:'GOL',
+  s_insp:'INSPECTEAZĂ',s_judge:'EVALUARE OPERATOR',s_sensor:'PLACA LA SENZORUL FINAL',s_feed:'BANDA INTRODUCE PLACA',s_push:'ÎMPINGĂTORUL ÎMPINGE PLACA',s_return:'ÎMPINGĂTORUL REVINE',s_full:'MAGAZIE PLINĂ',s_swap:'SCHIMB MAGAZIE',s_empty:'GOL',
   z_in:'piese nesortate',z_out:'piese sortate',z_an:'ZONA DE ANALIZĂ',z_an2:'plăci defecte (Mag 3)',
   l_start:'Linie pornită · {side} · {prog} · lățime {w} mm · pas {p}',l_load:'{sn} scoasă din încărcător (magazia {m}, poziția {s})',l_flip:'{sn} întoarsă la {f}',l_bypass:'{sn} bypass la {f}',
   l_scan:'{sn} cod citit',l_aoi:'{sn} rezultat AOI: {r}',l_mark:'{sn} marcată pentru evaluare',l_dec:'{sn} decizia operatorului: {d}',l_store:'{sn} → Magazia {n}',l_full:'Magazia {n} plină – linia s-a oprit',
@@ -177,14 +177,18 @@ function magCount(mg){return mg.boards.filter(Boolean).length;}
 function pickMag(b){const c=E.cap;if(b.result==='BAD')return magCount(UNL.mags[2])<c?2:-1;return magCount(UNL.mags[0])<c?0:magCount(UNL.mags[1])<c?1:-1;}
 function* unloaderRun(m){
   while(true){while(!m.inbox.length){m.st='s_wait';yield FRAME;}const b=m.inbox.shift();m.busy=true;
-    m.st='s_in';yield* conveyTo(b,m.X(m.shX+250-BW/2-6));m.sens=1;m.st='s_sensor';
+    m.st='s_in';yield* conveyTo(b,m.X(m.shX+250-BW/2-6));m.sens=1;m.st='s_sensor';yield .4;
     let i;while((i=pickMag(b))<0){if(hold!=='full'){hold='full';m.st='s_full';const bad=b.result==='BAD';showWarn(T(bad?'fullBad':'fullGood'));log(T('l_full',{n:bad?3:'1 + 2'}),'ng');}yield FRAME;}
     const mg=m.mags[i];let k=E.cap-1;while(k>0&&mg.boards[k])k--;                     // top to bottom
     m.st='s_shuttle';const zb=m.cz,p0=m.platY;yield* tw(.25+Math.abs(m.magZ[i]-zb)/900,t=>{m.cz=lerp(zb,m.magZ[i],ease(t));b.z=m.cz;m.platY=lerp(p0,slotPlat(k),ease(t));});
-    const ref=rodRest(m),edge=b.x-m.cx-BW/2-5,end=m.magX-BW/2-4;
-    m.st='s_push';yield* tw(.25,t=>m.hook=t);yield* tw(.6,t=>m.rodX=lerp(ref,edge,t));m.sens=0;
-    yield* tw(1.4,t=>{m.rodX=lerp(edge,end,t);b.x=m.X(m.rodX+BW/2+5);});b.inMag=true;mg.boards[k]=b;
-    yield* tw(.25,t=>m.hook=1-t);const r1=m.rodX;yield* tw(.9,t=>m.rodX=lerp(r1,ref,ease(t)));
+    // 1) the conveyor belts drive the panel into the magazine as far as they reach (pusher still raised at reference)
+    const ref=rodRest(m),home=m.magX-MG.L/2-2;
+    m.st='s_feed';yield* conveyTo(b,m.X(m.shX+250-8+BW/2));m.sens=0;
+    // 2) the lever drops behind the trailing edge, travels to it and pushes the panel home; the paddle stops at the magazine entrance
+    m.st='s_push';yield* tw(.25,t=>m.hook=t);const edge=b.x-m.cx-BW/2-3;yield* tw(.8,t=>m.rodX=lerp(ref,edge,ease(t)));
+    yield* tw(.7,t=>{m.rodX=lerp(edge,home,t);b.x=m.X(m.rodX+BW/2+3);});b.inMag=true;mg.boards[k]=b;
+    // 3) lever up, back to the reference point
+    m.st='s_return';yield* tw(.25,t=>m.hook=1-t);yield* tw(.9,t=>m.rodX=lerp(home,ref,ease(t)));
     const rec=RECORDS.find(r=>r.b===b);rec.mag=i+1;b.result==='BAD'?CNT.bad++:CNT.good++;m.outT.push(simTime);m.procT.push(simTime-b.t0);
     log(T('l_store',{sn:b.id,n:i+1}),b.result==='BAD'?'ng':'ok');
     const zc=m.cz;yield* tw(.25+Math.abs(LZ[0]-zc)/900,t=>m.cz=lerp(zc,LZ[0],ease(t)));m.busy=false;
@@ -276,7 +280,9 @@ const views={over:()=>flyTo([400,4300,8600],[0,700,-200]),
   aoi:()=>{const m=AOI_;setHoods(1);flyTo([m.cx+650,1950,1650],[m.cx,960,120]);},
   unloader:()=>{const m=UNL;setHoods(1);flyTo([m.cx+1300,2300,2300],[m.cx,1000,-350]);},
   follow:()=>{setHoods(1);const b=boards.filter(b=>b.alive&&!b.inMag).sort((a,c)=>c.x-a.x)[0];if(b){flyTo([b.x-350,CONV_Y+450,b.z+720],[b.x,CONV_Y,b.z],.9);follow={b};}},
-  top:()=>{setHoods(1);flyTo([0,9000,10],[0,900,0]);}};
+  top:()=>{setHoods(1);flyTo([0,9000,10],[0,900,0]);},
+  pusher:()=>{const m=UNL;setHoods(0);if(!xray){xray=true;applyXray();ui(true);}const x=m.X(PUSHX),z=m.cz;flyTo([x-40,CONV_Y+1650,z+330],[x,CONV_Y,z-30]);follow={pusher:true};}};
+const PUSHX=-40;   // pusher view centre (unloader-local x): between the pusher reference and the magazine entrance
 document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-v]').forEach(x=>x.classList.remove('on'));b.classList.add('on');views[b.dataset.v]();});
 controls.addEventListener('start',()=>{tween=null;});
 /* click a hood to open / close it */
@@ -340,7 +346,8 @@ function frame(){
     if(m.lamps){m.lamps.g.emissiveIntensity=G?1.8:.05;m.lamps.y.emissiveIntensity=Y&&(ls!=='st_judge'||blink)?1.8:.05;m.lamps.r.emissiveIntensity=R&&blink?1.8:.05;}});
   boards.forEach(b=>{if(!b.alive)return;b.g.position.set(b.x,CONV_Y+BT/2*PSCALE+b.dy,b.z);b.piv.rotation.x=b.flip;});
   if(tween){tween.t+=rdt;const k=ease(Math.min(1,tween.t/tween.dur));camera.position.lerpVectors(tween.p0,tween.p1,k);controls.target.lerpVectors(tween.t0,tween.t1,k);if(k>=1)tween=null;}
-  if(follow&&!tween){if(!follow.b.alive||follow.b.inMag)follow=null;else{_p.set(follow.b.x,CONV_Y,follow.b.z).sub(controls.target);camera.position.add(_p);controls.target.add(_p);}}
+  if(follow&&follow.pusher&&!tween){_p.set(UNL.X(PUSHX),CONV_Y,UNL.cz-30).sub(controls.target);_p.x=0;camera.position.add(_p);controls.target.add(_p);}
+  else if(follow&&!tween){if(!follow.b.alive||follow.b.inMag)follow=null;else{_p.set(follow.b.x,CONV_Y,follow.b.z).sub(controls.target);camera.position.add(_p);controls.target.add(_p);}}
   controls.update();const dist=camera.position.distanceTo(controls.target);camera.near=Math.max(1.5,Math.min(10,dist*.03));camera.updateProjectionMatrix();
   const [W,H]=SMT.size();renderer.setViewport(0,0,W,H);renderer.clear();renderer.shadowMap.needsUpdate=true;renderer.render(scene,camera);
   if(showTags)tags.forEach(t=>{_p.copy(t.v);t.m.g.localToWorld(_p);_p.project(camera);const vis=_p.z<1&&Math.abs(_p.x)<1&&Math.abs(_p.y)<1;t.el.style.display=vis?'block':'none';if(vis){t.el.style.left=((_p.x+1)/2*W)+'px';t.el.style.top=((1-_p.y)/2*H)+'px';}});

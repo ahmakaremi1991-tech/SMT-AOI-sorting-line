@@ -45,7 +45,7 @@ stage=('<div id="hint" data-ov="hint"></div>'
 bar=('<button id="bStart" class="go" data-t="START">START</button><button id="bPause">PAUSE</button><button id="bStop" class="stp" data-t="STOP">STOP</button><button id="bReset" data-t="RESET">RESET</button>'
  '<div class="sep"></div><button id="bMark" class="mk" data-t="mark">Mark panel for judgement</button><button id="bRepl" data-t="replace">Replace magazine</button>'
  '<div class="sep"></div><span class="lbl" data-t="speed">Speed</span>'+''.join(f'<button data-s="{v}"{" class=on" if v==1 else ""}>{v}×</button>' for v in (0.5,1,2,4))+
- '<div class="sep"></div>'+''.join(f'<button data-v="{v}"{" class=on" if v=="over" else ""} data-t="{t}"></button>' for v,t in [('over','over'),('loader','vLoader'),('aoi','vAoi'),('unloader','vUnl'),('follow','follow'),('top','vTop')])+
+ '<div class="sep"></div>'+''.join(f'<button data-v="{v}"{" class=on" if v=="over" else ""} data-t="{t}"></button>' for v,t in [('over','over'),('loader','vLoader'),('aoi','vAoi'),('unloader','vUnl'),('pusher','vPush'),('follow','follow'),('top','vTop')])+
  '<div class="sep"></div><button id="bHood">Open covers</button><button id="bXray" data-t="xray">X-ray</button><button id="bLab" data-t="labels">Labels</button>')
 css="""#hud{width:330px}#hud .sl{font-size:11px;color:var(--mut);margin:2px 0 8px}
 #stList .pill{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
